@@ -5,7 +5,6 @@ import (
     "github.com/gin-gonic/gin"
 	"fmt"
 	"os/exec"
-	"strconv"
 )
 
 
@@ -41,14 +40,15 @@ func main() {
                	f, err := exec.Command("curl",s).Output()
 	              if err == nil {
 	                  c.Writer.Header().Add("Access-Control-Allow-Origin", "*")
-	                	c.JSON(http.StatusOK, gin.H{"status": "delete sacling nginx"})
+	                	c.JSON(200, gin.H{"status": "delete sacling nginx"})
 	              }
 	              fmt.Println(string(f))
 	             
                
               
             }
-            else{
+           
+           
                if update.TaskStatus == "TASK_RUNNING" {
                   h := " -X PUT -d '"
                   h += update.Host
@@ -62,13 +62,13 @@ func main() {
                	 f_run, err_run := exec.Command("curl",h).Output()
 	               if err_run == nil {
 	                   c.Writer.Header().Add("Access-Control-Allow-Origin", "*")
-	                	 c.JSON(http.StatusOK, gin.H{"status": "add sacling nginx"})
+	                	 c.JSON(200, gin.H{"status": "add sacling nginx"})
 	               }
 	               fmt.Println(string(f_run))                  
             
                 
                }
-             }
+             
             
        
        } 

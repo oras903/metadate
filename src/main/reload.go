@@ -50,7 +50,7 @@ json2 := `{"from":"en","to":"zh","ipAddresses":[{"ipAddress":"192.168.20.10","ds
        fmt.Println(s.EventType)
        fmt.Println(s.TaskStatus)
        fmt.Println(s.TaskId)
-       //fmt.Println(s.Ports)
+       fmt.Println(s.Ports)
        // fmt.Println(gojson.Json(string(msg.Data)).Get("ipAddresses").Get("ipAddress").Tostring())
 //       fmt.Println("1")
 //       fmt.Println(gojson.Json(json1).Getindex(7).Getindex(1).Getindex(1).Get("ipAddress").Tostring())

@@ -48,7 +48,7 @@ json2 := `{"from":"en","to":"zh","ipAddresses":[{"ipAddress":"192.168.20.10","ds
         json.Unmarshal(msg.Data, &s)
  //      fmt.Println(s.IpAddresses[0].IpAddress)
        fmt.Println(s.EventType)
-       //fmt.Println(s.TaskStatus)
+       fmt.Println(s.TaskStatus)
        fmt.Println(s.TaskId)
        fmt.Println(s.Ports)
        // fmt.Println(gojson.Json(string(msg.Data)).Get("ipAddresses").Get("ipAddress").Tostring())

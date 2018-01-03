@@ -1,8 +1,7 @@
 //下载代码，构建镜像， 执行重启docker相关任务
 node{
-    stage('get clone'){
-        //check CODE
-       git credentialsId: '25e0e854-3ecd-436e-bfed-53029cdd066f', url: 'https://github.com/oras903/haproxy_reload.git'
+    stage('get checkout'){
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanCheckout'], [$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_reload.git']]])
     }
 
     stage('mvn test'){

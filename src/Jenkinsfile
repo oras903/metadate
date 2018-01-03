@@ -1,0 +1,20 @@
+//下载代码，构建镜像， 执行重启docker相关任务
+node{
+    stage('get clone'){
+        //check CODE
+       git credentialsId: '25e0e854-3ecd-436e-bfed-53029cdd066f', url: 'https://github.com/oras903/haproxy_reload.git'
+    }
+
+    stage('mvn test'){
+        withMaven(
+            maven: 'M3') {
+                sh "mvn -version"
+        }
+    }
+
+
+    stage('deploy'){
+        //执行部署脚本
+        echo "deploy ......" 
+    }
+}

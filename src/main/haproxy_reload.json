@@ -1,5 +1,5 @@
 {
-  "id": "haproxyreload",
+  "id": "/haproxyreload",
   "cmd": null,
   "cpus": 3,
   "mem": 50,

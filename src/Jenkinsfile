@@ -23,7 +23,7 @@ node{
         //marathon docker: '192.168.20.10:31076/haproxy_reload', dockerForcePull: true, forceUpdate: true, url: marathon_url, filename: "haproxy_reload.json"
     withDockerRegistry([url: 'http://192.168.20.10:31076']) {
 
-        marathon credentialsId: '', docker: '192.168.20.10:31076/haproxy_reload:latest', dockerForcePull: true, filename: 'src/main/haproxy_reload.json', forceUpdate: true, id: 'haproxy_reload', url: 'http://192.168.20.11:8088'
+        marathon credentialsId: '', docker: '192.168.20.10:31076/haproxy_reload:latest', dockerForcePull: true, filename: 'src/main/haproxy_reload.json', forceUpdate: true, id: 'haproxy_reload', uris: [[uri: 'http://192.168.20.10:31076']], url: 'http://192.168.20.11:8088'
     }
     }
 }

@@ -5,6 +5,9 @@
   "mem": 50,
   "disk": 0,
   "instances": 1,
+  "uris": [
+        "192.168.20.10:31076"
+    ]
   "acceptedResourceRoles": [
     "*"
   ],
@@ -12,7 +15,7 @@
     "type": "DOCKER",
     "docker": {
       "forcePullImage": true,
-      "image": "haproxy_reload:latest",
+      "image": "192.168.20.10:31076/haproxy_reload:latest",
       "parameters": [],
       "privileged": false
     },

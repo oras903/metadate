@@ -7,7 +7,7 @@
   "instances": 1,
   "uris": [
         "192.168.20.10:31076"
-    ]
+    ],
   "acceptedResourceRoles": [
     "*"
   ],

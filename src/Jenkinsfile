@@ -3,14 +3,16 @@ node{
     stage('get checkout'){
        //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanCheckout'], [$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_reload.git']]])
        
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_reload.git']]])
-
+          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_reload.git']]])
         
-       docker.withRegistry("http://192.168.20.10:31171/v2")
+        agent {
+              docker.withRegistry("http://192.168.20.10:31171/v2")
 
-       def customImage = docker.build("haproxy_reload:${env.BUILD_ID}")
+              def customImage = docker.build("haproxy_reload:${env.BUILD_ID}")
 
-       customImage.push('latest') 
+              customImage.push('latest') 
+            }
+  
     
     }
 

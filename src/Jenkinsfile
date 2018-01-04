@@ -1,4 +1,4 @@
-//下载代码，构建镜像， 执行重启docker相关任务
+//下载代码，构建镜像，放入私仓,  强制下载新镜像，重启docker相关任务
 node{
     stage('get checkout'){
        //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanCheckout'], [$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_reload.git']]])
@@ -27,6 +27,6 @@ node{
         //执行部署脚本
         echo "deploy ......" 
         marathon_url="http://192.168.20.10:8088"
-        marathon docker: 192.168.20.10:31076/haproxy_reload:latest, dockerForcePull: true, forceUpdate: true, url: marathon_url, filename: "haproxy_reload.json"
+        marathon docker: '192.168.20.10:31076/haproxy_reload', dockerForcePull: true, forceUpdate: true, url: marathon_url, filename: "haproxy_reload.json"
     }
 }

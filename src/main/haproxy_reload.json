@@ -7,6 +7,8 @@
   "instances": 1,
   "container": {
     "type": "DOCKER",
+    "image": "192.168.20.10:31076/haproxy_reload:latest",
+    "parameters": [],
     "portMappings": [
       {
         "containerPort": 6000,

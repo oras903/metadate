@@ -5,10 +5,17 @@
   "mem": 60,
   "disk": 0,
   "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
   "container": {
     "type": "DOCKER",
-    "image": "192.168.20.10:31076/haproxy_reload:latest",
-    "parameters": [],
+    "docker": {
+      "image": "192.168.20.10:31076/haproxy_reload:latest",
+      "parameters": [],
+      "privileged": false
+    },
+    
     "portMappings": [
       {
         "containerPort": 6000,

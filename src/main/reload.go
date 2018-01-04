@@ -69,19 +69,13 @@ json2 := `{"from":"en","to":"zh","ipAddresses":[{"ipAddress":"192.168.20.10","ds
                 sc += s.TaskId
                 
                 c := exec.Command("curl","-XDELETE","http://192.168.20.11:8500/v1/kv/nginx/"+s.TaskId)
-               if err := c.Run(); err != nil {
-		fmt.Println(c.Stderr)
-	       } 
+                if err := c.Run(); err != nil {
+		 fmt.Println(c.Stderr)
+	        } 
                 fmt.Println(c.Stdout)
             }
 
       if (s.EventType == "status_update_event") && (s.TaskStatus == "TASK_RUNNING") {
-                  h := " -X PUT -d '"
-                  h += ss
-                  h += ":"
-                  h += string(sss)
-                  h += "' http://192.168.20.11:8500/v1/kv/nginx/"
-                  h +=s.TaskId
                   
                  c_run := exec.Command("curl","-XPUT","-d",ss+":"+fmt.Sprint(sss),"http://192.168.20.11:8500/v1/kv/nginx/"+s.TaskId)
                  var out bytes.Buffer

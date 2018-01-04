@@ -12,7 +12,7 @@
         "containerPort": 6000,
         "hostPort": 31086,
         "protocol": "tcp",
-        "servicePort": 10001
+        "servicePort": 10011
       }
     ]
   },

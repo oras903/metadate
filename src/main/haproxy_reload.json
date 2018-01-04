@@ -1,0 +1,25 @@
+{
+  "id": "haproxy_reload",
+  "cmd": null,
+  "cpus": 1,
+  "mem": 60,
+  "disk": 0,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "portMappings": [
+      {
+        "containerPort": 6000,
+        "hostPort": 31086,
+        "protocol": "tcp",
+        "servicePort": 10001
+      }
+    ]
+  },
+  "networks": [
+    {
+      "mode": "container/bridge"
+    }
+  ],
+  "portDefinitions": []
+}

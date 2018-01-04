@@ -2,7 +2,7 @@
   "id": "haproxy_reload",
   "cmd": null,
   "cpus": 1,
-  "mem": 60,
+  "mem": 50,
   "disk": 0,
   "instances": 1,
   "acceptedResourceRoles": [
@@ -11,17 +11,19 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "192.168.20.10:31076/haproxy_reload:latest",
+      "forcePullImage": true,
+      "image": "haproxy_reload:latest",
       "parameters": [],
       "privileged": false
     },
-    
     "portMappings": [
       {
-        "containerPort": 6000,
-        "hostPort": 31086,
+        "containerPort": 7000,
+        "hostPort": 31055,
+        "labels": {},
+        "name": "rrr",
         "protocol": "tcp",
-        "servicePort": 10011
+        "servicePort": 10001
       }
     ]
   },

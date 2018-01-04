@@ -26,7 +26,15 @@ node{
     stage('deploy'){
         //执行部署脚本
         echo "deploy ......" 
-        marathon_url="http://192.168.20.10:8088"
-        marathon docker: '192.168.20.10:31076/haproxy_reload', dockerForcePull: true, forceUpdate: true, url: marathon_url, filename: "haproxy_reload.json"
+        //marathon_url="http://192.168.20.10:8088"
+        //marathon docker: '192.168.20.10:31076/haproxy_reload', dockerForcePull: true, forceUpdate: true, url: marathon_url, filename: "haproxy_reload.json"
+        
+        marathon(
+          url: 'http://192.168.20.10:8088',
+          forceUpdate: true,
+          id: 'haproxy_reload',
+          docker: '192.168.20.10:31076/haproxy_reload:latest',
+          dockerForcePull: true)
+    
     }
 }

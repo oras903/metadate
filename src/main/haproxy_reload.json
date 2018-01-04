@@ -1,12 +1,12 @@
 {
-  "id": "haproxy_reload",
+  "id": "haproxyreload",
   "cmd": null,
   "cpus": 1,
   "mem": 50,
   "disk": 0,
   "instances": 1,
   "uris": [
-        "192.168.20.10:31076"
+        "http://192.168.20.10:31076/v2"
     ],
   "acceptedResourceRoles": [
     "*"
@@ -26,7 +26,7 @@
         "labels": {},
         "name": "rrr",
         "protocol": "tcp",
-        "servicePort": 10001
+        "servicePort": 10002
       }
     ]
   },

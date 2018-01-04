@@ -30,7 +30,7 @@ type ipaddress struct {
 
 
 func main() {
-    client := sse.NewClient("http://192.168.20.11:8088/v2/events?event_type=status_update_event")
+      client := sse.NewClient("http://192.168.20.11:8088/v2/events?event_type=status_update_event")
 
     client.Subscribe("status_update_event", func(msg *sse.Event) {
         // Got some data!

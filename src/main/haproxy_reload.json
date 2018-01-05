@@ -1,7 +1,7 @@
 {
   "id": "/haproxyreload",
   "cmd": null,
-  "cpus": 3,
+  "cpus": 1,
   "mem": 50,
   "disk": 0,
   "instances": 1,

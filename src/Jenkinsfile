@@ -3,7 +3,7 @@ node{
     stage('get checkout'){
        //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanCheckout'], [$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_reload.git']]])
        
-          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_reload.git']]])
+          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanCheckout'], [$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_reload.git']]])
           dir('src/main') {
               withDockerRegistry([url: 'http://192.168.20.10:31076']) {
 

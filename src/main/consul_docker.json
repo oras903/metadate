@@ -1,5 +1,5 @@
 {
-  "server": true ,
+  "server": true,
   "data_dir": "/data",
   "client_addr": "0.0.0.0",
   "bootstrap_expect": 1,

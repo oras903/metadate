@@ -5,6 +5,5 @@
   "bootstrap_expect": 1,
   "ports": {
     "dns": 53
-  },
-  "recursor": "8.8.8.8"
+  }
 }

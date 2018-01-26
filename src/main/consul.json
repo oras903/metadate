@@ -6,8 +6,8 @@
   "disk": 0,
   "instances": 1,
   "labels":{
-    "MARATHON_SINGLE_INSTANCE_APP": "true",
-   }
+    "MARATHON_SINGLE_INSTANCE_APP": "true"
+   },
   "uris": [
         "http://192.168.20.10:31076/v2"
     ],

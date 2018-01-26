@@ -1,5 +1,5 @@
 {
-  "id": "haproxyreload",
+  "id": "consul",
   "cmd": null,
   "cpus": 0.4,
   "mem": 50,
@@ -15,14 +15,14 @@
     "type": "DOCKER",
     "docker": {
       "forcePullImage": true,
-      "image": "192.168.20.10:31076/haproxy_reload:latest",
+      "image": "192.168.20.10:31076/consul:latest",
       "parameters": [],
       "privileged": false
     },
     "portMappings": [
       {
         "containerPort": 7000,
-        "hostPort": 31055,
+        "hostPort": 31056,
         "labels": {},
         "name": "rrr",
         "protocol": "tcp",

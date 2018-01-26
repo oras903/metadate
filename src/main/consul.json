@@ -2,7 +2,7 @@
   "id": "consul",
   "cmd": null,
   "cpus": 0.4,
-  "mem": 20,
+  "mem": 15,
   "disk": 0,
   "instances": 1,
   "uris": [

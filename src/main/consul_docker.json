@@ -5,12 +5,6 @@
   "mem": 20,
   "disk": 0,
   "instances": 1,
-  "labels":{
-    "MARATHON_SINGLE_INSTANCE_APP": "true"
-   },
-  "uris": [
-        "http://192.168.20.10:31076/v2"
-    ],
   "acceptedResourceRoles": [
     "*"
   ],
@@ -22,6 +16,7 @@
       "parameters": [],
       "privileged": false
     },
+    "volumes": [],
     "portMappings": [
       {
         "containerPort": 7000,
@@ -33,10 +28,25 @@
       }
     ]
   },
+  "labels": {
+    "MARATHON_SINGLE_INSTANCE_APP": "true"
+  },
   "networks": [
     {
       "mode": "container/bridge"
     }
   ],
-  "portDefinitions": []
+  "portDefinitions": [],
+  "fetch": [
+    {
+      "uri": "http://192.168.20.10:31076/v2",
+      "extract": false,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "upgradeStrategy": {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0
+  }
 }

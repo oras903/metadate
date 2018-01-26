@@ -1,7 +1,7 @@
 {
   "id": "consul",
   "cmd": null,
-  "cpus": 0.3,
+  "cpus": 0.4,
   "mem": 20,
   "disk": 0,
   "instances": 1,

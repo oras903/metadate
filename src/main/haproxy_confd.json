@@ -1,0 +1,52 @@
+{
+  "id": "haproxy_confd",
+  "cmd": null,
+  "cpus": 0.3,
+  "mem": 20,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "forcePullImage": true,
+      "image": "192.168.20.10:31076/haproxy_confd:latest",
+      "parameters": [],
+      "privileged": false
+    },
+    "volumes": [],
+    "portMappings": [
+      {
+        "containerPort": 7000,
+        "hostPort": 31057,
+        "labels": {},
+        "name": "rrr",
+        "protocol": "tcp",
+        "servicePort": 10002
+      }
+    ]
+  },
+  "labels": {
+    "MARATHON_SINGLE_INSTANCE_APP": "true"
+  },
+  "networks": [
+    {
+      "mode": "container/bridge"
+    }
+  ],
+  "portDefinitions": [],
+  "fetch": [
+    {
+      "uri": "http://192.168.20.10:31076/v2",
+      "extract": false,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "upgradeStrategy": {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0
+  }
+}

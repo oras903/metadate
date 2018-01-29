@@ -1,5 +1,5 @@
 {
-  "id": "haproxy_confd",
+  "id": "haproxyconfd",
   "cmd": null,
   "cpus": 0.3,
   "mem": 20,

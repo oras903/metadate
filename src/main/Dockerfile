@@ -8,8 +8,8 @@ ADD https://pan.baidu.com/s/1c3VAsM0 /tmp/confd
 RUN cd /usr/sbin && cp /tmp/confd /usr/sbin/confd  && chmod +x /usr/sbin/confd && rm /tmp/confd
 RUN mkdir -p /etc/confd/conf.d
 RUN mkdir -p /etc/confd/templates
-ADD haproxy.toml /etc/confd/conf.d/
-ADD haproxy.cfg.tmpl /etc/confd/templates/
+ADD haproxy.toml /etc/confd/conf.d/haproxy.toml
+ADD haproxy.cfg.tmpl /etc/confd/templates/haproxy.cfg.tmpl
 
 EXPOSE 8888 22
 

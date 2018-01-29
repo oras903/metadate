@@ -1,17 +1,18 @@
 FROM ubuntu
-ENV REFRESHED_AT 2016-06-01
+MAINTAINER ftpw <352965446@qq.com>
+RUN apt-get update
+RUN apt-get install openssh-server supervisor haproxy -y
+ADD supervisord.conf /etc/supervisor/supervisord.conf
+EXPOSE 8080 22
 
-RUN apt-get -qqy update
-RUN apt-get -qqy install curl unzip
+ADD https://pan.baidu.com/s/1c3VAsM0 /tmp/confd
+RUN cd /usr/sbin && cp /tmp/confd /usr/sbin/confd  && chmod +x /usr/sbin/confd && rm /tmp/confd
+RUN mkdir -p /etc/confd/conf.d
+RUN mkdir -p /etc/confd/templates
+ADD haproxy.toml /etc/confd/conf.d/
+ADD haproxy.cfg.tmpl /etc/confd/templates/
 
-ADD https://releases.hashicorp.com/consul/1.0.1/consul_1.0.1_linux_amd64.zip /tmp/consul.zip
-RUN cd /usr/sbin && unzip /tmp/consul.zip && chmod +x /usr/sbin/consul && rm /tmp/consul.zip
 
-ADD consul.json /config/
-
-EXPOSE 53/udp 8300 8301 8301/udp 8302 8302/udp 8400 8500
-
-VOLUME ["/data"]
-
-ENTRYPOINT [ "/usr/sbin/consul", "agent","-config-dir=/config","-ui" ]
-CMD []
+RUN /etc/init.d/ssh stop
+RUN /etc/init.d/haproxy stop
+CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]

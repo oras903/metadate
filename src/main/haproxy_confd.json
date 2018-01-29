@@ -19,7 +19,7 @@
     "volumes": [],
     "portMappings": [
       {
-        "containerPort": 7000,
+        "containerPort": 8888,
         "hostPort": 31057,
         "labels": {},
         "name": "rrr",

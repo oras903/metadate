@@ -3,7 +3,7 @@ MAINTAINER ftpw <352965446@qq.com>
 RUN apt-get update
 RUN apt-get install openssh-server supervisor haproxy -y
 ADD supervisord.conf /etc/supervisor/supervisord.conf
-EXPOSE 8080 22
+EXPOSE 8888 22
 
 ADD https://pan.baidu.com/s/1c3VAsM0 /tmp/confd
 RUN cd /usr/sbin && cp /tmp/confd /usr/sbin/confd  && chmod +x /usr/sbin/confd && rm /tmp/confd

@@ -2,6 +2,7 @@ FROM golang:latest
 MAINTAINER ftpw <352965446@qq.com>
 RUN apt-get update
 RUN apt-get install openssh-server supervisor haproxy -y
+RUN apt-get install psmisc -y
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 
 
@@ -30,5 +31,6 @@ EXPOSE 8888 22
 
 
 RUN /etc/init.d/ssh stop
-RUN /etc/init.d/haproxy stop
+RUN killall haproxy
+RUN rm /var/run/haproxy.pid
 CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]

@@ -1,17 +1,17 @@
-FROM ubuntu
+FROM golang:latest
 MAINTAINER ftpw <352965446@qq.com>
 RUN apt-get update
 RUN apt-get install openssh-server supervisor haproxy -y
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 
 
-RUN wget https://pan.baidu.com/s/1o9AXm90  -O /tmp/go1.9.2.linux-amd64.tar.gz
-RUN tar -xzvf /tmp/go1.9.2.linux-amd64.tar.gz -C /usr/local
-RUN mkdir -p  /home/go
+#RUN wget https://pan.baidu.com/s/1o9AXm90  -O /tmp/go1.9.2.linux-amd64.tar.gz
+#RUN tar -xzvf /tmp/go1.9.2.linux-amd64.tar.gz -C /usr/local
+#RUN mkdir -p  /home/go
 
-ENV GOPATH /home/go  
-ENV GOROOT $PATH:/usr/local/go
-ENV PATH $GOROOT/bin:$PATH
+#ENV GOPATH /home/go  
+#ENV GOROOT $PATH:/usr/local/go
+#ENV PATH $GOROOT/bin:$PATH
 
 RUN mkdir -p $GOPATH/src/github.com/kelseyhightower
 RUN git clone https://github.com/kelseyhightower/confd.git $GOPATH/src/github.com/kelseyhightower/confd

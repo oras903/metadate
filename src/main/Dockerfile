@@ -6,7 +6,7 @@ ADD supervisord.conf /etc/supervisor/supervisord.conf
 
 
 RUN wget https://pan.baidu.com/s/1o9AXm90  -O /tmp/go1.9.2.linux-amd64.tar.gz
-RUN tar -xzf /tmp/go1.9.2.linux-amd64.tar.gz -C /usr/local
+RUN tar -xzvf /tmp/go1.9.2.linux-amd64.tar.gz -C /usr/local
 RUN mkdir -p  /home/go
 
 ENV GOPATH /home/go  

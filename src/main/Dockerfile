@@ -31,6 +31,6 @@ EXPOSE 8888 22
 
 
 RUN /etc/init.d/ssh stop
-RUN killall haproxy
-RUN rm /var/run/haproxy.pid
+#RUN killall haproxy
+#RUN rm /var/run/haproxy.pid
 CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]

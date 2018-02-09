@@ -1,5 +1,5 @@
 {
-  "id": "haproxyconfd",
+  "id": "metadata",
   "cmd": null,
   "cpus": 0.3,
   "mem": 20,
@@ -15,14 +15,14 @@
     "type": "DOCKER",
     "docker": {
       "forcePullImage": true,
-      "image": "192.168.20.10:31076/haproxy_confd:latest",
+      "image": "192.168.20.10:31076/metadata:latest",
       "parameters": [],
       "privileged": false
     },
     "portMappings": [
       {
-        "containerPort": 8888,
-        "hostPort": 31057,
+        "containerPort": 3306,
+        "hostPort": 31058,
         "labels": {},
         "name": "rrr",
         "protocol": "tcp",

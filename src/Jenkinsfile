@@ -3,14 +3,9 @@ node{
     stage('get checkout'){
        //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanCheckout'], [$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_confd.git']]])
        
-          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanCheckout'], [$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/haproxy_confd.git']]])
+          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanCheckout'], [$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'oras903', url: 'https://github.com/oras903/metadata.git']]])
           dir('src/main') {
-              withDockerRegistry([url: 'http://192.168.20.10:31076']) {
 
-              def customImage =  docker.build("192.168.20.10:31076/haproxy_confd:${env.BUILD_ID}")
-
-              customImage.push('latest') 
-              }
           }
       
     }
@@ -21,7 +16,7 @@ node{
         //marathon_url="http://192.168.20.10:8088"
         //marathon docker: '192.168.20.10:31076/haproxy_reload', dockerForcePull: true, forceUpdate: true, url: marathon_url, filename: "haproxy_reload.json"
         
-        marathon  credentialsId: '', docker: '192.168.20.10:31076/haproxy_confd:latest', dockerForcePull: true, filename: 'src/main/haproxy_confd.json', id: 'haproxyconfd', forceUpdate: false, uris: [[uri: 'http://192.168.20.10:31076/v2']], url: 'http://192.168.20.11:8088'
+        marathon  credentialsId: '', docker: '192.168.20.10:31076/metadata:latest', dockerForcePull: true, filename: 'src/main/metadata.json', id: 'metadata', forceUpdate: false, uris: [[uri: 'http://192.168.20.10:31076/v2']], url: 'http://192.168.20.11:8088'
 
     }
 }
